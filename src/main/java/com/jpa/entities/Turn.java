@@ -39,4 +39,8 @@ public class Turn {
     public void setPlayers(List<Person> players) {
         this.players = players;
     }
+
+    public void addPlayer(Person person) {
+        this.players.add(person);
+    }
 }
