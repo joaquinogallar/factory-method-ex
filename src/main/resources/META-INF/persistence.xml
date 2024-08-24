@@ -6,6 +6,11 @@
     <persistence-unit name="my_factory_ex">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
+        <class>com.jpa.entities.Address</class>
+        <class>com.jpa.entities.Person</class>
+        <class>com.jpa.entities.Member</class>
+        <class>com.jpa.entities.Turn</class>
+
         <properties>
             <!-- Apache derby configuration -->
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
