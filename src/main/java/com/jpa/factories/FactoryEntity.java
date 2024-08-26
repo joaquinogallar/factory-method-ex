@@ -1,22 +1,22 @@
 package com.jpa.factories;
 
-import com.jpa.daos.AddressDao;
-import com.jpa.daos.MemberDao;
-import com.jpa.daos.PersonDao;
-import com.jpa.daos.TurnDao;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public abstract class FactoryEntity {
     public static final int DEFAULT = 1;
 
-    public abstract AddressDao getAddressDao();
-    public abstract MemberDao getMemberDao();
-    public abstract PersonDao getPersonDao();
-    public abstract TurnDao getTurnDao();
+    public abstract void open();
+    public abstract void close();
+    public abstract EntityManagerFactory getEmf();
+    public abstract EntityManager getEm();
 
-    public static FactoryEntity getDaoFactoryEntity(int fNumber) {
+    public static FactoryEntity getFactoryEntity(int fNumber) {
         switch (fNumber) {
             case DEFAULT:
-                return new DefaultFactoryEntity();
+                EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_factory_ex");
+                return MySqlFactoryEntity.getInstance(emf);
             default:
                 return null;
         }
