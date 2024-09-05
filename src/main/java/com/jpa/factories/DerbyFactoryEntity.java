@@ -3,30 +3,31 @@ package com.jpa.factories;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-public class MySqlFactoryEntity extends FactoryEntity {
+public class DerbyFactoryEntity extends FactoryEntity {
 
     private final EntityManagerFactory emf;
     private final EntityManager em;
-    private static MySqlFactoryEntity instance;
+    private static DerbyFactoryEntity instance;
 
-    private MySqlFactoryEntity(EntityManagerFactory emf) {
+    private DerbyFactoryEntity(EntityManagerFactory emf) {
         this.emf = emf;
         em = emf.createEntityManager();
     }
 
-    public static MySqlFactoryEntity getInstance(EntityManagerFactory emf) {
+    public static DerbyFactoryEntity getInstance(EntityManagerFactory emf) {
         if (instance == null) {
-            instance = new MySqlFactoryEntity(emf);
+            instance = new DerbyFactoryEntity(emf);
         }
         return instance;
     }
 
+    @Override
     public EntityManagerFactory getEmf() {
         return emf;
     }
 
+    @Override
     public EntityManager getEm() {
         return em;
     }
-
 }

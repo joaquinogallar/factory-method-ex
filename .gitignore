@@ -39,3 +39,6 @@ build/
 
 ### Enviroment Variables ###
 .env
+
+### Files ###
+errores.txt

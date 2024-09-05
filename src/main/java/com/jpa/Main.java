@@ -15,34 +15,37 @@ import javax.persistence.EntityManager;
 
 public class Main {
     public static void main(String[] args) {
-        /*EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("my_factory_ex");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
+        /*
+         * EntityManagerFactory entityManagerFactory =
+         * Persistence.createEntityManagerFactory("my_factory_ex");
+         * EntityManager entityManager = entityManagerFactory.createEntityManager();
+         * entityManager.getTransaction().begin();
+         * 
+         * Address a = new Address("1475 Luck Hoof Avenue", "Los Angeles");
+         * entityManager.persist(a);
+         * 
+         * Person bojack = new Person("Bojack", "Horseman", 20, a);
+         * Person pCarolyn = new Person("Princess", "Carolyn", 20, a);
+         * entityManager.persist(bojack);
+         * entityManager.persist(pCarolyn);
+         * 
+         * Turn t = new Turn();
+         * t.addPlayer(bojack);
+         * t.addPlayer(pCarolyn);
+         * entityManager.persist(t);
+         * 
+         * entityManager.getTransaction().commit();
+         * entityManager.close();
+         * entityManagerFactory.close();
+         */
 
-        Address a = new Address("1475 Luck Hoof Avenue", "Los Angeles");
-        entityManager.persist(a);
+        FactoryEntity mySqlFactory = FactoryEntity.getFactoryEntity(FactoryEntity.MY_SQL);
 
-        Person bojack = new Person("Bojack", "Horseman", 20, a);
-        Person pCarolyn = new Person("Princess", "Carolyn", 20, a);
-        entityManager.persist(bojack);
-        entityManager.persist(pCarolyn);
+        if (mySqlFactory != null) {
 
-        Turn t = new Turn();
-        t.addPlayer(bojack);
-        t.addPlayer(pCarolyn);
-        entityManager.persist(t);
+            mySqlFactory.open();
 
-        entityManager.getTransaction().commit();
-        entityManager.close();
-        entityManagerFactory.close();*/
-        FactoryEntity defaultFactoryEntity = FactoryEntity.getFactoryEntity(FactoryEntity.DEFAULT);
-
-
-        if (defaultFactoryEntity != null) {
-
-            defaultFactoryEntity.open();
-
-            EntityManager em = defaultFactoryEntity.getEm();
+            EntityManager em = mySqlFactory.getEm();
             AddressDao addressDao = AddressDaoImp.getInstance(em);
             PersonDao personDao = PersonDaoImp.getInstance(em);
             TurnDao turnDao = TurnDaoImp.getInstance(em);
@@ -54,7 +57,6 @@ public class Main {
 
             Turn t = new Turn();
 
-
             addressDao.insertAddress(a);
 
             personDao.insertPerson(bojack);
@@ -62,10 +64,11 @@ public class Main {
 
             turnDao.insertTurn(t);
 
-            defaultFactoryEntity.close();
+            personDao.setTurn(t, pCarolyn);
+
+            mySqlFactory.close();
 
         }
-
 
     }
 }
