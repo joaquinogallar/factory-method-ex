@@ -2,6 +2,7 @@ package com.jpa.daos.imp;
 
 import com.jpa.daos.MemberDao;
 import com.jpa.entities.Member;
+import com.jpa.entities.Turn;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -45,5 +46,10 @@ public class MemberDaoImp implements MemberDao {
     @Override
     public Member getMemberById(int id) {
         return em.find(Member.class, id);
+    }
+
+    @Override
+    public List<Member> getMembersByTurn(Turn turn) {
+        return List.of();
     }
 }

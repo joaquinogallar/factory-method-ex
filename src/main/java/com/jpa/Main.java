@@ -39,6 +39,14 @@ public class Main {
          * entityManagerFactory.close();
          */
 
+        /*
+            a) recuperar todas las personas asignadas a un turno.
+            b) recuperar todas las personas asignadas a un turno, y marcar cuales de ellas son socios.
+            c) recuperar todas las personas que viven en una ciudad predeterminada.
+            d) En los casos anteriores, evaluar que sucede al utilizar las opciones FetchType.LAZY o
+            FetchType.EAGER en las anotaciones. ¿Nota alguna diferencia?, ¿a qué se debe?
+        */
+
         FactoryEntity mySqlFactory = FactoryEntity.getFactoryEntity(FactoryEntity.MY_SQL);
 
         if (mySqlFactory != null) {

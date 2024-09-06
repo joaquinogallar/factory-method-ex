@@ -20,4 +20,6 @@ public interface PersonDao {
     public void setTurn(Turn turn, Person person);
 
     public List<Person> getPersonsByCity(Address address);
+
+    public List<Person> getMembersByTurn(Turn turn);
 }

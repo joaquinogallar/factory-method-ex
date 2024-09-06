@@ -72,4 +72,10 @@ public class PersonDaoImp implements PersonDao {
         return address.getPopulation();
     }
 
+    @Override
+    public List<Person> getMembersByTurn(Turn turn) {
+        return em.createQuery("SELECT p FROM Person p JOIN Member m JOIN Turn_Person", Person.class).getResultList();
+    }
+
+
 }
