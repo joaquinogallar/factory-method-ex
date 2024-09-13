@@ -1,5 +1,6 @@
 package com.jpa.daos;
 
+import com.jpa.dtos.PersonDTO;
 import com.jpa.entities.Address;
 import com.jpa.entities.Person;
 import com.jpa.entities.Turn;
@@ -15,11 +16,13 @@ public interface PersonDao {
 
     public List<Person> getPersons();
 
-    public Person getPersonById(int id);
+    public Person getPersonById(Long id);
 
-    public void setTurn(Turn turn, Person person);
+    public void setTurn(Long idPerson, Turn turn);
 
-    public List<Person> getPersonsByCity(Address address);
+    public List<Person> getPersonsByTurn(Long id);
 
-    public List<Person> getMembersByTurn(Turn turn);
+    public List<Person> getPersonsByCity(String city);
+
+    public List<PersonDTO> getMemberPersonsByTurn(Long id);
 }

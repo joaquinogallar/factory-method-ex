@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5bdbbf5-0eeb-4858-a36a-24b52e68f34c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpa/dtos/PersonDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpa/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpa/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpa/daos/AddressDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpa/daos/AddressDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpa/daos/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpa/daos/MemberDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jpa/daos/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpa/daos/PersonDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpa/daos/imp/AddressDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpa/daos/imp/AddressDaoImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jpa/daos/imp/MemberDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpa/daos/imp/MemberDaoImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jpa/daos/imp/PersonDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpa/daos/imp/PersonDaoImp.java" afterDir="false" />
     </list>
@@ -15,6 +19,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,26 +38,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/joaco/IdeaProjects/factory-method-ex",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "application.passwordSafe",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/joaco/IdeaProjects/factory-method-ex&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;application.passwordSafe&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -65,6 +76,10 @@
       <updated>1725575808447</updated>
       <workItem from="1725575809816" duration="1004000" />
       <workItem from="1725621764247" duration="4902000" />
+      <workItem from="1725656195677" duration="456000" />
+      <workItem from="1726081985888" duration="486000" />
+      <workItem from="1726233945770" duration="3880000" />
+      <workItem from="1726244040309" duration="2783000" />
     </task>
     <servers />
   </component>

@@ -13,5 +13,5 @@ public interface MemberDao {
 
     public List<Member> getAllMembers();
 
-    public Member getMemberById(int id);
+    public Member getMemberById(Long id);
 }

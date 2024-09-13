@@ -13,5 +13,7 @@ public interface AddressDao {
 
     public List<Address> getAddresses();
 
-    public Address getAddressById(int id);
+    public Address getAddressById(Long id);
+
+    public Address getAddressesByCity(String cityName);
 }

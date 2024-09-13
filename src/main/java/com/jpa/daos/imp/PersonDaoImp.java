@@ -1,23 +1,27 @@
 package com.jpa.daos.imp;
 
+import com.jpa.daos.AddressDao;
 import com.jpa.daos.PersonDao;
+import com.jpa.daos.TurnDao;
+import com.jpa.dtos.PersonDTO;
 import com.jpa.entities.Address;
 import com.jpa.entities.Person;
 import com.jpa.entities.Turn;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersonDaoImp implements PersonDao {
 
     private EntityManager em;
-    private static PersonDaoImp instace;
+    private static PersonDao instace;
 
     private PersonDaoImp(EntityManager em) {
         this.em = em;
     }
 
-    public static PersonDaoImp getInstance(EntityManager em) {
+    public static PersonDao getInstance(EntityManager em) {
         if (instace == null) {
             instace = new PersonDaoImp(em);
         }
@@ -45,36 +49,44 @@ public class PersonDaoImp implements PersonDao {
     }
 
     @Override
-    public Person getPersonById(int id) {
+    public Person getPersonById(Long id) {
         return em.find(Person.class, id);
     }
 
-    public List<Person> getPersonsByTurn(Turn turn) {
-        // return em.createQuery("SELECT p FROM Turn t JOIN t.players p WHERE t.id =
-        // :turnId", Person.class)
-        // .setParameter("turnId", turn.getId())
-        // .getResultList();
-
-        return turn.getPlayers();
+    @Override
+    public List<Person> getPersonsByTurn(Long id) {
+        return em.createQuery("SELECT p FROM Turn t JOIN t.players p WHERE t.id = :turnId", Person.class)
+        .setParameter("turnId", id)
+        .getResultList();
     }
 
     @Override
-    public void setTurn(Turn turn, Person person) {
-        // Añadir la persona al turno
-        turn.addPlayer(person);
+    public void setTurn(Long idPerson, Turn turn) {
+        turn.addPlayer(getPersonById(idPerson));
 
-        // Actualizar el turno en la base de datos
-        em.merge(turn); // merge() se utiliza para actualizar el estado de una entidad
+        em.merge(turn); // merge() actualiza el estado de una entidad
     }
 
     @Override
-    public List<Person> getPersonsByCity(Address address) {
-        return address.getPopulation();
+    public List<Person> getPersonsByCity(String city) {
+        return em.createQuery("SELECT p FROM Person p JOIN p.address a WHERE a.city = :cityName", Person.class)
+                .setParameter("cityName", city)
+                .getResultList();
     }
 
     @Override
-    public List<Person> getMembersByTurn(Turn turn) {
-        return em.createQuery("SELECT p FROM Person p JOIN Member m JOIN Turn_Person", Person.class).getResultList();
+    public List<PersonDTO> getMemberPersonsByTurn(Long id) {
+        List<Person> persons = em.createQuery("SELECT p FROM Turn t JOIN t.players p JOIN Member m WHERE t.id = :turnId AND p.id = m.person.id", Person.class)
+                .setParameter("turnId", id)
+                .getResultList();
+
+        List<PersonDTO> result = new ArrayList<>();
+        persons.forEach(p -> {
+            PersonDTO dto = new PersonDTO(p.getName(), p.getSurname(), p.getAge(), p.getAddress(), true);
+            result.add(dto);
+        });
+
+        return result;
     }
 
 

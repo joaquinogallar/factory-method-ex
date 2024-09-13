@@ -43,7 +43,12 @@ public class AddressDaoImp implements AddressDao {
     }
 
     @Override
-    public Address getAddressById(int id) {
+    public Address getAddressById(Long id) {
         return em.find(Address.class, id);
+    }
+
+    @Override
+    public Address getAddressesByCity(String cityName) {
+        return em.createNamedQuery("Address.findByCity", Address.class).setParameter("city", cityName).getSingleResult();
     }
 }

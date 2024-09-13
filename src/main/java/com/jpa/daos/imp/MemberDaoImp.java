@@ -44,12 +44,8 @@ public class MemberDaoImp implements MemberDao {
     }
 
     @Override
-    public Member getMemberById(int id) {
+    public Member getMemberById(Long id) {
         return em.find(Member.class, id);
     }
 
-    @Override
-    public List<Member> getMembersByTurn(Turn turn) {
-        return List.of();
-    }
 }
